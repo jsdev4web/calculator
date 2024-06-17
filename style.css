@@ -1,0 +1,19 @@
+.main {
+    display: flex;
+    flex-direction: column;
+}
+
+#num {
+    width:  178px;
+    height: 55px;
+}
+
+.clear {
+    width: 59px;
+    height: 55px;
+}
+
+.buttons {
+    width: 59px;
+    height: 50px;
+}
