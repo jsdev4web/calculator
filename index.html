@@ -4,15 +4,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
-    <script src="scripts.js"></script>
+    <script src="scripts.js" defer></script>
     <title>Calculator</title>
 </head>
 <body>
 
     <div class="main">
         <div class="displayClear">
-            <input type="text" id="num" name="num" />
-            <button class="clear">Clear</button>
+            <div id="display"></div>
+            <button class="clear" value=" ">Clear</button>
         </div>
         <div class="rowHolder">
             <button class="buttons" id="1" value=1 >1</button>
@@ -40,5 +40,6 @@
         </div>
 
     </div>    
+    
 </body>
 </html>

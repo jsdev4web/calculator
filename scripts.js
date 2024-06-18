@@ -39,12 +39,32 @@ function calc(operator, x, y){
 
 console.log(calc("-", 9, 5))
 
+// add numbers and operators
+let buttons = document.querySelectorAll(".buttons")
+console.log(buttons)
 
-let btnClicks = document.querySelectorAll(".buttons")
-console.log(btnClicks)
+let display = document.querySelector("#display")
 
-btnClicks.forEach(function (item) {
-    item.addEventListener('click', function (e) {
-        console.log(e)
+let store = []
+
+buttons.forEach((item) => {
+    
+    item.addEventListener('click', (e) => {
+        console.log(e.target.value)
+        let displayText = e.target.value
+
+        display.innerText += displayText
+        store.push(displayText)
+        console.log(store)
     })
 }) 
+
+let clear = document.querySelector(".clear")
+
+
+clear.addEventListener("click", function(){
+    //console.log(e)
+    let html = "";
+    display.innerText = html
+    
+})

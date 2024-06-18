@@ -3,6 +3,21 @@
     flex-direction: column;
 }
 
+.displayClear {
+    display: flex;
+}
+
+#display {
+    color: black;
+    font-size: xx-large;
+    text-align: center;
+    padding-top: 15px;
+    height: 54px;
+    width: 184px;
+    border: .5px solid black;
+    margin-right: 3px;
+}
+
 #num {
     width:  178px;
     height: 55px;
@@ -10,7 +25,7 @@
 
 .clear {
     width: 59px;
-    height: 55px;
+    height: 71px;
 }
 
 .buttons {
