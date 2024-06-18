@@ -38,3 +38,13 @@ function calc(operator, x, y){
 
 
 console.log(calc("-", 9, 5))
+
+
+let btnClicks = document.querySelectorAll(".buttons")
+console.log(btnClicks)
+
+btnClicks.forEach(function (item) {
+    item.addEventListener('click', function (e) {
+        console.log(e)
+    })
+}) 
