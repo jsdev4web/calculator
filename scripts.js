@@ -1,19 +1,3 @@
-console.log("test")
-
-function calculator(){
-
-    this.add = function(x, y){ return x + y }
-    this.sub = function(x, y) { return x - y }
-    this.multiply = function(x, y) { return x * y }
-    this.divide = function(x, y) { return x / y }
-}
-
-let c =  new calculator()
-console.log(c.add(5,5))
-console.log(c.sub(6,5))
-console.log(c.multiply(6,5))
-console.log(c.divide(6,3))
-console.log("break in the code for 2nd calculator")
 
 function calc(operator, x, y){
 
@@ -29,7 +13,9 @@ function calc(operator, x, y){
         return sub(x,y)
     }else if (operator === "*"){
         return multiply(x,y)
-    }else if (operator === "/"){
+    }else if (operator === "/" && y === parseInt("0")) {
+        return "Trying to crash me huh?"
+    } else if (operator === "/"){
         return divide(x,y)
     } else{
         return "invalid selection"
@@ -45,26 +31,83 @@ console.log(buttons)
 
 let display = document.querySelector("#display")
 
+let equalBtn = document.getElementById("=")
+
+let floatBtn = document.getElementById(".")
+
 let store = []
+let test1 = []
 
 buttons.forEach((item) => {
-    
     item.addEventListener('click', (e) => {
         console.log(e.target.value)
-        let displayText = e.target.value
 
+        let displayText = e.target.value
+        console.log(displayText)
         display.innerText += displayText
-        store.push(displayText)
-        console.log(store)
+
+
+            store.push(displayText)
+            console.log(store)
+
+        //Fix double digits here
+        
     })
+
 }) 
+
+//isolate the array on test bed
+
+equalBtn.addEventListener("click", () => {
+    console.log(store)
+    let testStore = store.toString()
+    console.log(testStore)
+
+
+    let firstVarible = store[0]
+    firstVarible = parseInt(firstVarible)
+    let secondVarible = store[2]
+    secondVarible = parseInt(secondVarible)
+    let operator = store[1]
+    console.log(typeof(operator))
+    console.log(firstVarible)
+    console.log(secondVarible)
+    console.log(operator)
+
+    let html = "";
+    html = calc(operator, firstVarible, secondVarible)
+    display.innerHTML = html;
+
+    console.log((calc(operator, firstVarible, secondVarible)))
+
+})
+
 
 let clear = document.querySelector(".clear")
 
-
 clear.addEventListener("click", function(){
     //console.log(e)
+    store = []
     let html = "";
+    display.innerText = html
+    
+})
+
+let backSpace = document.createElement("button")
+backSpace.classList.add("backSpace")
+backSpace.innerText = "Backspace"
+let main = document.querySelector(".main")
+console.log(main)
+main.appendChild(backSpace)
+
+backSpace.addEventListener("click", (e) => {
+    store.pop()
+    console.log(store)
+    let html = display.innerText
+    console.log(html)
+    console.log(typeof(html))
+    html = html.substring(0, html.length - 1)
+    console.log(html)
     display.innerText = html
     
 })
