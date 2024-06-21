@@ -23,11 +23,11 @@ function calc(operator, x, y){
 }
 
 
-console.log(calc("-", 9, 5))
+//console.log(calc("-", 9, 5))
 
 // add numbers and operators
 let buttons = document.querySelectorAll(".buttons")
-console.log(buttons)
+//console.log(buttons)
 
 let display = document.querySelector("#display")
 
@@ -40,15 +40,15 @@ let test1 = []
 
 buttons.forEach((item) => {
     item.addEventListener('click', (e) => {
-        console.log(e.target.value)
+        //console.log(e.target.value)
 
         let displayText = e.target.value
-        console.log(displayText)
+        //console.log(displayText)
         display.innerText += displayText
 
 
             store.push(displayText)
-            console.log(store)
+            //console.log(store)
 
         //Fix double digits here
         
@@ -60,19 +60,22 @@ buttons.forEach((item) => {
 
 equalBtn.addEventListener("click", () => {
     console.log(store)
-    let testStore = store.toString()
-    console.log(testStore)
+    
+
+    const re = /(\+|\-|\*|\/)/;
+    let [ value1, operate, value2 ] = store.join("").split(re)
+    console.log(value1, operate, value2)
 
 
-    let firstVarible = store[0]
+    let firstVarible = value1
     firstVarible = parseInt(firstVarible)
-    let secondVarible = store[2]
+    let secondVarible = value2
     secondVarible = parseInt(secondVarible)
-    let operator = store[1]
-    console.log(typeof(operator))
-    console.log(firstVarible)
-    console.log(secondVarible)
-    console.log(operator)
+    let operator = operate
+    //console.log(typeof(operator))
+    //console.log(firstVarible)
+    //console.log(secondVarible)
+    //console.log(operator)
 
     let html = "";
     html = calc(operator, firstVarible, secondVarible)
@@ -97,17 +100,15 @@ let backSpace = document.createElement("button")
 backSpace.classList.add("backSpace")
 backSpace.innerText = "Backspace"
 let main = document.querySelector(".main")
-console.log(main)
 main.appendChild(backSpace)
 
 backSpace.addEventListener("click", (e) => {
     store.pop()
-    console.log(store)
+    //console.log(store)
     let html = display.innerText
-    console.log(html)
-    console.log(typeof(html))
+    //console.log(html)
     html = html.substring(0, html.length - 1)
-    console.log(html)
+    //console.log(html)
     display.innerText = html
     
 })
