@@ -1,6 +1,21 @@
+body {
+    background-color: lightgrey;
+}
+
 .main {
     display: flex;
     flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 200px;
+}
+
+.displayClear {
+    border: 5px solid white;
+}
+
+.rowHolder {
+    border: 5px solid white;
 }
 
 .displayClear {
@@ -9,6 +24,7 @@
 
 #display {
     color: black;
+    background-color: whitesmoke;
     font-size: xx-large;
     text-align: center;
     padding-top: 15px;
